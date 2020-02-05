@@ -212,7 +212,6 @@ void UART0_IRQHandler(void)
     if ( (kLPSCI_TxDataRegEmptyFlag)            & LPSCI_GetStatusFlags(UART0) &&
          (kLPSCI_TxDataRegEmptyInterruptEnable) & LPSCI_GetEnabledInterrupts(UART0) )
     {
-        /* si el RB está vacío deshabilita interrupción TX */
         LPSCI_DisableInterrupts(UART0, kLPSCI_TxDataRegEmptyInterruptEnable);
         LPSCI_ClearStatusFlags(UART0, kLPSCI_TxDataRegEmptyFlag);
     }
